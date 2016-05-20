@@ -44,7 +44,7 @@ class HttpBlMiddleware:
             except socket.gaierror:
                 result = False
 
-            cache.set(cache_key, 86400)
+            cache.set(cache_key, result, 86400)
 
         return result
 
