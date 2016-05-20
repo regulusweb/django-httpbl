@@ -18,18 +18,18 @@ class HttpBlMiddleware:
         self.min_score = getattr(settings, 'HTTPBL_THREAT_SCORE', 40)
 
     def is_threat(self, ip):
-        logger.debug('Checking {}'.format(ip))
         cache_key = 'httpbl_{}'.format(ip)
         result = cache.get(cache_key)
 
         if result is None:
+            logger.debug('Checking {}'.format(ip))
             ip_parts = ip.split('.')
             ip_parts.reverse()
             query = '{}.{}.{}'.format(settings.HTTPBL_API_KEY, '.'.join(ip_parts), self.HTTPBL_DOMAIN)
 
             try:
-                result = socket.gethostbyname(query)
-                bits = result.split('.')
+                response = socket.gethostbyname(query)
+                bits = response.split('.')
                 if not bits[0] == '127':
                     # First octet should always be 127... something went wrong
                     return False
