@@ -15,7 +15,7 @@ class HttpBlMiddleware:
 
     def __init__(self):
         self.max_age = getattr(settings, 'HTTPBL_THREAT_AGE', 30)
-        self.min_score = getattr(settings, 'HTTPBL_THREAT_SCORE', 40)
+        self.min_score = getattr(settings, 'HTTPBL_THREAT_SCORE', 35)
         self.cache_lifetime = getattr(settings, 'HTTPBL_CACHE_LIFETIME', 86400)
 
     def is_threat(self, httpbl_response):
