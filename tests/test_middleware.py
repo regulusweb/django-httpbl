@@ -4,7 +4,7 @@ from django.conf import settings
 import pytest
 
 
-settings.configure(HTTPBL_API_KEY = os.environ.get('HTTPBL_API_KEY'))
+settings.configure(HTTPBL_API_KEY = 'abcdefghijkl')
 
 
 @pytest.fixture
@@ -38,8 +38,4 @@ def test_threat_high_score(middleware):
 
 
 def test_threat_high_score_high_age(middleware):
-    assert middleware.is_threat('127.100.75.1') == False
-
-
-def test_threat_low_score_high_age(middleware):
     assert middleware.is_threat('127.100.75.1') == False
