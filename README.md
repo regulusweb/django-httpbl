@@ -14,3 +14,4 @@ identified as threats will receive a HTTP 403 response.
 
 - `HTTPBL_THREAT_SCORE`: the threat score at which to consider an IP a threat. Defaults to `35`.
 - `HTTPBL_THREAT_AGE`: the maximum age in days at which to consider an IP a threat. Defaults to `30`.
+- `HTTPBL_CACHE_LIFETIME`: cache lifetime for results, in seconds. Only applies if you have a working cache backend. Defaults to `86400` (1 day).
