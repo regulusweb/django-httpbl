@@ -18,7 +18,7 @@ class HttpBlMiddleware:
         self.min_score = getattr(settings, 'HTTPBL_THREAT_SCORE', 40)
 
     def is_threat(self, ip):
-        logger.info('Checking {}'.format(ip))
+        logger.debug('Checking {}'.format(ip))
         cache_key = 'httpbl_{}'.format(ip)
         result = cache.get(cache_key)
 
