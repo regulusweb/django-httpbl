@@ -18,7 +18,4 @@ identified as threats will receive a HTTP 403 response.
 
 ## Testing
 
-```
-$ export HTTPBL_API_KEY=yourapikey
-$ py.test
-```
+Create a venv using `requirements.txt` and run `py.test`.
